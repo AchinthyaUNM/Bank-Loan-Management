@@ -11,6 +11,9 @@ $(document).ready(function() {
             case 'Gold Loan':
                 interestRateField.val(10);
                 break;
+            case 'Vehical Loan':
+                interestRateField.val(12);
+                break;    
             default:
                 interestRateField.val('');
         }
