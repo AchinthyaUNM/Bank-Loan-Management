@@ -31,6 +31,13 @@ $(document).ready(function() {
         $('#allRepaymentsTableBody').empty();
         if (repayments.length > 0) {
             repayments.forEach(repayment => {
+                const statusClass =
+                    repayment.paymentStatus === "COMPLETED"
+                        ? "bg-success p-1 rounded text-white"
+                        : repayment.paymentStatus === "PENDING"
+                        ? "bg-warning p-1 rounded"
+                        : "bg-danger p-1 rounded text-white"; // For REJECTED or other statuses
+
                 $('#allRepaymentsTableBody').append(`
                     <tr>
                         <td>${repayment.repaymentId}</td>
@@ -38,7 +45,7 @@ $(document).ready(function() {
                         <td>${repayment.dueDate}</td>
                         <td>₹${repayment.amountDue.toFixed(2)}</td>
                         <td>${repayment.paymentDate || '-'}</td>
-                        <td>${repayment.paymentStatus}</td>
+                        <td><span class="${statusClass}">${repayment.paymentStatus}</span></td>
                     </tr>
                 `);
             });
@@ -51,9 +58,9 @@ $(document).ready(function() {
     // Initial population of the Repayments Table
     populateRepaymentsTable(allRepayments);
 
-    // Filter Repayments based on selected status
-    $('#filterRepaymentsBtn').click(function() {
-        const selectedStatus = $('#repaymentStatusFilter').val();
+    // Filter Repayments dynamically when dropdown value changes
+    $('#repaymentStatusFilter').change(function() {
+        const selectedStatus = $(this).val();
         let filteredRepayments = allRepayments;
         if (selectedStatus) {
             filteredRepayments = allRepayments.filter(repayment => repayment.paymentStatus === selectedStatus);
