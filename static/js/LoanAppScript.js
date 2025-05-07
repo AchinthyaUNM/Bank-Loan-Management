@@ -5,7 +5,7 @@ $(document).ready(function() {
             case 'Personal Loan':
                 interestRateField.val(5);
                 break;
-            case 'House Loan':
+            case 'Housing Loan':
                 interestRateField.val(8);
                 break;
             case 'Gold Loan':
