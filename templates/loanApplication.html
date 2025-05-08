@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="navbar-container"></div>
+
     <div class="container justify-content-center align-items-center min-vh-100">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -58,5 +60,15 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="/static/js/LoanAppScript.js"></script>
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+
+                // Optional: Run any JavaScript that depends on the navbar being loaded
+                // For example, initializing event listeners within the navbar
+            });
+    </script>
 </body>
 </html>

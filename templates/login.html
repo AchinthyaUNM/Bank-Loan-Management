@@ -9,7 +9,7 @@
 </head>
 
 <body class="bg-light">
- 
+    <div id="navbar-container"></div>
     <div class="container">
         <div class="row align-items-center">
             <!-- Card Section -->
@@ -46,7 +46,16 @@
     </div>
         
         
+    <script>
+        fetch('navbarLogin.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
 
+                // Optional: Run any JavaScript that depends on the navbar being loaded
+                // For example, initializing event listeners within the navbar
+            });
+    </script>
 
 
     <!-- Bootstrap JS Bundle -->

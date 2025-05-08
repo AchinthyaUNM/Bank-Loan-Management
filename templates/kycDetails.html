@@ -97,7 +97,7 @@
 </head>
 
 <body class="bg-light text-dark">
-
+    <div id="navbar-container"></div>
     <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -205,6 +205,16 @@
                 }
             }, 2000); // Simulate a delay
         });
+    </script>
+     <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+
+                // Optional: Run any JavaScript that depends on the navbar being loaded
+                // For example, initializing event listeners within the navbar
+            });
     </script>
 </body>
 
