@@ -41,25 +41,46 @@
         .navbar-nav .dropdown-menu {
             position: absolute; /* Ensures dropdown is positioned correctly */
         }
+        .loan-summary-card {
+            border-radius: 0.75rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px; /* Add some space below the summary */
+        }
+
+        .loan-summary-card-header {
+            background-color: #060708; /* Bootstrap primary color */
+            color: white;
+            border-radius: 0.75rem 0.75rem 0 0;
+            padding: 1.25rem;
+        }
+
+        .loan-summary-card-body {
+            padding: 1.5rem;
+        }
+
+        .loan-summary-details p {
+            margin-bottom: 0.75rem;
+        }
     </style>
 </head>
 
 <body class="bg-light">
     <div id="navbar-container"></div>
-
-
-    <div class="container mt-5 rounded">
-        <div class="card rounded">
-        <div class="card-header bg-dark">
-            <h3 class="text-white">Loan Summary (Application ID: APP001)</h3>
-        </div>
-        <div class="card-body shadow ">
-            <p><strong>Loan Amount:</strong> $<span id="loanAmountDisplay"></span></p>
-            <p><strong>Interest Rate:</strong> <span id="interestRateDisplay"></span>%</p>
-            <p><strong>Loan Duration:</strong> <span id="loanDurationDisplay"></span> Months</p>
-            <p><strong>Monthly Payment:</strong> $<span id="monthlyPaymentDisplay"></span></p>
-            <p><strong>Outstanding Balance:</strong> $<span id="outstandingBalanceDisplay"></span></p>
-        </div>
+    
+    <div class="container mt-5">
+        <div class="card loan-summary-card">
+            <div class="card-header loan-summary-card-header bg-dark">
+                <h3 class="text-white">Loan Summary (Application ID: APP001)</h3>
+            </div>
+            <div class="card-body loan-summary-card-body">
+                <div class="loan-summary-details">
+                    <p><strong>Loan Amount:</strong> $<span id="loanAmountDisplay"></span></p>
+                    <p><strong>Interest Rate:</strong> <span id="interestRateDisplay"></span>%</p>
+                    <p><strong>Loan Duration:</strong> <span id="loanDurationDisplay"></span> Months</p>
+                    <p><strong>Monthly Payment:</strong> $<span id="monthlyPaymentDisplay"></span></p>
+                    <p><strong>Outstanding Balance:</strong> $<span id="outstandingBalanceDisplay"></span></p>
+                </div>
+            </div>
         </div>
         <h2>Repayment Management</h2>
         <div class="card">
