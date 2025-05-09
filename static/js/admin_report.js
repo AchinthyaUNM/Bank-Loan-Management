@@ -45,7 +45,7 @@ $(document).ready(function() {
                         <td>${repayment.dueDate}</td>
                         <td>₹${repayment.amountDue.toFixed(2)}</td>
                         <td>${repayment.paymentDate || '-'}</td>
-                        <td><span class="${statusClass}">${repayment.paymentStatus}</span></td>
+                        <td><span class="${statusClass}" style="font-size: 10px;">${repayment.paymentStatus}</span></td>
                     </tr>
                 `);
             });
@@ -85,4 +85,12 @@ $(document).ready(function() {
     } else {
         $('#noCustomers').show();
     }
+});
+
+$(document).ready(function () {
+    $("#navbar-container").load("navbarAdmin.html");
+    $("#sidebar-container").load("sidebar.html", function () {
+        // Highlight the current page in the sidebar
+        $('#sidebar a[href="admin_report.html"]').addClass('active');
+    });
 });

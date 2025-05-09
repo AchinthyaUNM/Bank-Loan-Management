@@ -76,16 +76,16 @@ $(document).ready(function () {
           ? "bg-warning p-1 rounded"
           : "bg-danger p-1 rounded text-white"; // Added REJECTED status styling
       repaymentHistoryTableBody.append(`
-                <tr>
-                    <td>${repayment.applicationId}</td>
-                    <td>${repayment.dueDate}</td>
-                    <td>₹${repayment.amountDue.toFixed(2)}</td>
-                    <td>${repayment.paymentDate || "-"}</td>
-                    <td><span class="${statusClass}">${
+      <tr>
+          <td>${repayment.applicationId}</td>
+          <td>${repayment.dueDate}</td>
+          <td>₹${repayment.amountDue.toFixed(2)}</td>
+          <td>${repayment.paymentDate || "-"}</td>
+          <td><span class="${statusClass}" style="font-size: 10px;">${
         repayment.paymentStatus
       }</span></td>
-                </tr>
-            `);
+      </tr>
+    `);
     });
   } else {
     $("#noRepayments").show();
@@ -367,3 +367,4 @@ document
   .addEventListener("click", function () {
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
   });
+  
